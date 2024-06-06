@@ -1,0 +1,149 @@
+﻿<Window x:Class="MusicPlayerClient.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:MusicPlayerClient.ViewModels"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        MinHeight="600"
+        MinWidth="800"
+        Height="720" Width="1366">
+
+    <Grid>
+
+        <Border Style="{StaticResource CustomBorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="28"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Image Source="/icons/backgr2.png" 
+                       Stretch="Fill" 
+                       Opacity="0.5"
+                       Grid.Row="1"/>
+
+                <Border Grid.Row="0"
+        Grid.Column="0"
+        Grid.ColumnSpan="2"
+        Background="#212121"
+        x:Name="AppTopBorder" MouseDown="AppTopBorder_MouseDown">
+                    <Grid Grid.Row="0"
+          Grid.Column="0"
+          HorizontalAlignment="Stretch">
+                        <Label Margin="5,0,0,0"
+               FontFamily="{StaticResource Raleway}"
+               FontWeight="Regular"
+               Content="{Binding AppTitle}"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Center"
+               Foreground="White"/>
+                        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                            <Button Content="⎯" Style="{StaticResource MinMaxButton}"
+                        x:Name="MinimizeButton" Click="MinimizeButton_Click"/>
+                            <Button Content="▢" Style="{StaticResource MinMaxButton}"
+                        x:Name="MaximizeButton" Click="MaximizeButton_Click"/>
+                            <Button Content="✕" Style="{StaticResource CloseButton}"
+                        x:Name="ExitButton" Click="ExitButton_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border CornerRadius="10" 
+                Margin="450 100 450 100" 
+                Background="#90000000"
+                BorderThickness="0"
+                Grid.Row="1">
+
+                    <DockPanel>
+
+                        <TextBlock DockPanel.Dock="Top" 
+                           Text="BotyBeats" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White" 
+                           FontFamily="Montserrat" 
+                           FontSize="35" 
+                           Margin="0 60 0 0"/>
+
+                        <TextBlock DockPanel.Dock="Top" 
+                           Text="Войдите, чтобы продолжить" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center" 
+                           Foreground="White" 
+                           FontFamily="Montserrat" 
+                           FontWeight="Bold" 
+                           FontSize="20" 
+                           Margin="0 10 0 0"/>
+
+                        <StackPanel DockPanel.Dock="Top" 
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Margin="0,30,0,0">
+
+                            <TextBlock Text="Логин" 
+                               Foreground="White" 
+                               FontFamily="Montserrat" 
+                               FontSize="18"/>
+
+                            <TextBox Style="{StaticResource CustomTextBoxStyle}" 
+                             Width="250" Height="35" 
+                             Margin="0 5 0 0" 
+                             Name="UserNameTb"
+                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        </StackPanel>
+
+                        <StackPanel DockPanel.Dock="Top"
+                            HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Margin="0,10,0,0">
+
+                            <TextBlock Text="Пароль" 
+                               Foreground="White" 
+                               FontSize="18" 
+                               FontFamily="Montserrat"/>
+
+                            <PasswordBox Width="250" 
+                                 Height="35" 
+                                 Margin="0 5 0 0"
+                                 Name="PasswordTb"
+                                 Style="{StaticResource CustomPasswordBoxStyle}"/>
+
+                        </StackPanel>
+
+
+                        <Button DockPanel.Dock="Top"
+                        Opacity="1"
+                        Content="Погрузиться" 
+                        Width="150" Height="35" 
+                        Margin="0 30 0 0" 
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource CustomButtonStyles}"
+                        Click="Login_Click">
+                        </Button>
+
+                        <Label Content="Познакомься с нами!" 
+                       Width="120" Height="15"
+                       Opacity="1"
+                       Margin="0 -50 0 0" 
+                       FontSize="10" 
+                       HorizontalAlignment="Center"
+                       Foreground="White" 
+                       MouseLeftButtonDown="Label_Click" 
+                       DockPanel.Dock="Top"
+                       Style="{StaticResource CustomLabelStyle}"/>
+
+                    </DockPanel>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+    </Grid>
+</Window>
